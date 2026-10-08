@@ -1,0 +1,4 @@
+# Use LF line endings for text files and preserve binary assets.
+* text=auto eol=lf
+*.png binary
+*.woff2 binary

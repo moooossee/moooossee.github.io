@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container docs-layout">
+  <aside class="docs-sidebar"><p class="eyebrow">~/ DOCUMENTATION</p><nav aria-label="Documentation">{% set docs = get_section(path="docs/_index.md") %}{% for doc in docs.pages %}<a href="{{ doc.permalink }}"{% if page is defined and page.permalink == doc.permalink %} aria-current="page"{% endif %}><span>{{ loop.index | int }}.</span>{{ doc.title }}</a>{% endfor %}</nav><a class="sidebar-source" href="{{ config.extra.repository }}">{{ <icon name="github" size={16} /> }}Project on GitHub</a></aside>
+  <article class="docs-article">
+    {% if page is defined %}<p class="eyebrow">MOOSE / DOCUMENTATION</p><h1>{{ page.title }}</h1><p class="article-description">{{ page.description }}</p><div class="prose">{{ page.content | safe }}</div><nav class="doc-pagination" aria-label="Documentation pages">{% if page.lower %}<a href="{{ page.lower.permalink }}"><small>Previous guide</small>{{ page.lower.title }}</a>{% endif %}{% if page.higher %}<a href="{{ page.higher.permalink }}"><small>Next guide</small>{{ page.higher.title }}</a>{% endif %}</nav>
+    {% else %}<p class="eyebrow">MOOSE / DOCUMENTATION</p><h1>Documentation</h1><p class="article-description">Installation, models, files, privacy and development.</p><div class="prose">{{ section.content | safe }}</div><div class="doc-index">{% for doc in docs.pages %}<a href="{{ doc.permalink }}"><span class="accent">0{{ loop.index }}</span><div><h2>{{ doc.title }}</h2><p>{{ doc.description }}</p></div></a>{% endfor %}</div>{% endif %}
+  </article>
+  {% if page is defined and page.toc %}<aside class="docs-toc"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="On this page">{% for item in page.toc %}<a href="{{ item.permalink }}">{{ item.title }}</a>{% endfor %}</nav></aside>{% endif %}
+</div>
+{% endblock content %}

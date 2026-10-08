@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  {% if page is defined %}{% set meta_title = page.title ~ " · Moose" %}{% set meta_description = page.description | default(value=config.description) %}{% set canonical = page.permalink %}
+  {% elif section is defined and section.path != "/" %}{% set meta_title = section.title ~ " · Moose" %}{% set meta_description = section.description | default(value=config.description) %}{% set canonical = section.permalink %}
+  {% else %}{% set meta_title = "Moose — Chat with local AI on Linux" %}{% set meta_description = config.description %}{% set canonical = config.base_url ~ "/" %}{% endif %}
+  <title>{{ meta_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:site_name" content="Moose">
+  <meta name="theme-color" content="#20211f">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="icon" type="image/svg+xml" href="{{ get_url(path='images/moose.svg') }}">
+  <link rel="preload" href="{{ get_url(path='fonts/jetbrains-mono-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}">
+  <script src="{{ get_url(path='js/theme.js', cachebust=true) }}"></script>
+  <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
+  {% if current_path is defined and current_path == "/news/" %}<link rel="alternate" type="application/atom+xml" title="Moose news" href="{{ get_url(path='news/atom.xml') }}">{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="{{ get_url(path='/') }}" aria-label="Moose home">moose</a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="{{ get_url(path='/') }}#features">Features</a>
+        <a href="{{ get_url(path='@/docs/_index.md') }}"{% if current_path is defined and current_path[0:5] == '/docs' %} aria-current="page"{% endif %}>Docs</a>
+        <a href="{{ get_url(path='@/changelog/_index.md') }}"{% if current_path is defined and current_path[0:10] == '/changelog' %} aria-current="page"{% endif %}>Changelog</a>
+        <a href="{{ get_url(path='@/news/_index.md') }}"{% if current_path is defined and current_path[0:5] == '/news' %} aria-current="page"{% endif %}>News</a>
+        <a href="{{ config.extra.repository }}">GitHub</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" hidden>[<span class="theme-label">light</span>]</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">{% block content %}{% endblock content %}</main>
+  <footer class="site-footer">
+    <div class="container footer-inner"><p>Moose is free software. <a href="{{ config.extra.repository }}/blob/main/LICENSE">GPL-3.0-or-later</a>.</p><nav aria-label="Footer navigation"><a href="{{ get_url(path='@/docs/_index.md') }}">Documentation</a><a href="{{ config.extra.repository }}/issues">Issues</a><a href="{{ get_url(path='@/docs/contributing.md') }}">Contributing</a></nav></div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

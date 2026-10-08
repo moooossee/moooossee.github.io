@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="container article-shell"><a class="breadcrumb" href="{{ get_url(path='@/changelog/_index.md') if page.extra.version is defined else get_url(path='@/news/_index.md') }}">{{ "~/ changelog" if page.extra.version is defined else "~/ news" }}</a><header class="page-heading"><p class="eyebrow">{% if page.extra.version is defined %}MOOSE v{{ page.extra.version }}{% else %}MOOSE / NEWS{% endif %}{% if page.date %}<span> · </span><time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>{% endif %}</p><h1>{{ page.title }}</h1><p>{{ page.description }}</p></header><div class="prose">{{ page.content | safe }}</div>{% if page.extra.version is defined %}<a class="button button-outline" href="{{ config.extra.repository }}/releases/tag/v{{ page.extra.version }}">View release on GitHub</a>{% endif %}</article>
+{% endblock content %}

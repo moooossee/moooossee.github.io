@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container project-page">
+  <section class="project-intro" aria-labelledby="project-title">
+    <div class="project-heading">
+      <img src="{{ get_url(path='images/moose.svg') }}" width="64" height="64" alt="">
+      <div><h1 id="project-title">Moose</h1><p>Chat with local AI on Linux.</p></div>
+    </div>
+    <p>Moose is a GTK 4 and libadwaita app for talking to AI models. Run models locally with Ollama, or connect a cloud provider with your own API key. Conversations and drafts are saved on your computer.</p>
+    <p class="project-links"><a href="{{ config.extra.flathub }}">Download from Flathub</a><span aria-hidden="true"> / </span><a href="{{ config.extra.repository }}">Source code</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/changelog/0-6-0.md') }}">v{{ config.extra.version }} release notes</a></p>
+  </section>
+  <section class="install-block" id="install" aria-labelledby="install-title">
+    <h2 id="install-title">Install</h2>
+    <div class="command-line"><span class="prompt" aria-hidden="true">$</span><code>{{ config.extra.install_command }}</code><button class="copy-button" type="button" data-copy="{{ config.extra.install_command }}" aria-label="Copy install command">Copy</button></div>
+    <p class="install-note">Requires <a href="https://flatpak.org/setup/">Flatpak and the Flathub remote</a>. Moose can install and manage Ollama for you. <a href="{{ get_url(path='@/docs/getting-started.md') }}">Getting started</a></p>
+  </section>
+  <figure class="screenshot-viewer">
+    <a href="{{ get_url(path='images/chat.png') }}" class="screenshot-link" aria-label="Open full-size Chat screenshot"><img id="app-screenshot" src="{{ get_url(path='images/chat.png') }}" width="1650" height="982" fetchpriority="high" alt="Moose's Linux interface with saved conversations and a formatted model response."></a>
+    <div class="screenshot-controls">
+      <div class="preview-tabs" role="group" aria-label="App screenshots">
+        <button type="button" class="preview-tab" data-image="{{ get_url(path='images/chat.png') }}" data-alt="Moose's Linux interface with saved conversations and a formatted model response." data-caption="Chat with a local model." data-label="Chat" aria-label="Show Chat screenshot" aria-pressed="true">Chat</button>
+        <button type="button" class="preview-tab" data-image="{{ get_url(path='images/files.png') }}" data-alt="The Files view with local attachments and library documents." data-caption="Browse attachments and library documents." data-label="Files" aria-label="Show Files screenshot" aria-pressed="false">Files</button>
+        <button type="button" class="preview-tab" data-image="{{ get_url(path='images/privacy.png') }}" data-alt="Privacy settings with Local Only mode and sharing permissions." data-caption="Configure local inference and remote sharing permissions." data-label="Privacy" aria-label="Show Privacy screenshot" aria-pressed="false">Privacy</button>
+      </div>
+      <figcaption id="preview-caption" aria-live="polite">Chat with a local model.</figcaption>
+    </div>
+  </figure>
+  <div class="project-body">
+    <div>
+      <section id="features" aria-labelledby="features-title">
+        <h2 id="features-title">Features</h2>
+        <ul class="feature-list">
+          <li>Browse, download and manage local models.</li>
+          <li>Attach images, PDFs, text files and code.</li>
+          <li>Search a local document library with source excerpts.</li>
+          <li>Read Markdown, highlighted code, math and model reasoning.</li>
+          <li>Edit messages, retry answers and keep conversation versions.</li>
+          <li>Save drafts automatically and export your chats.</li>
+        </ul>
+        <p>Images require a model with vision support. PDFs need selectable text. See <a href="{{ get_url(path='@/docs/files-and-documents.md') }}">Files and documents</a>.</p>
+      </section>
+      <section aria-labelledby="connections-title">
+        <h2 id="connections-title">Local and remote models</h2>
+        <p>Use Ollama managed by Moose, an existing Ollama instance, Ollama Cloud, Groq, OpenAI, Anthropic Claude or Google Gemini.</p>
+        <p>Local Only mode restricts inference to Moose-managed Ollama. Remote connections ask permission before sharing messages; files need separate permission. API keys use your desktop's secret storage.</p>
+        <p><a href="{{ get_url(path='@/docs/models-and-providers.md') }}">Models and providers</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/privacy.md') }}">Privacy and sharing</a></p>
+      </section>
+    </div>
+    <aside class="project-details" aria-labelledby="project-details-title">
+      <h2 id="project-details-title">Project</h2>
+      <dl><dt>Version</dt><dd><a href="{{ get_url(path='@/changelog/0-6-0.md') }}">{{ config.extra.version }}</a></dd><dt>Platform</dt><dd>Linux</dd><dt>Language</dt><dd>Rust</dd><dt>Interface</dt><dd>GTK 4 / libadwaita</dd><dt>License</dt><dd><a href="{{ config.extra.repository }}/blob/main/LICENSE">GPL-3.0-or-later</a></dd></dl>
+      <h3>Development</h3>
+      <ul><li><a href="{{ config.extra.repository }}">Browse the source</a></li><li><a href="{{ config.extra.repository }}/issues">Report a bug</a></li><li><a href="{{ get_url(path='@/docs/build-from-source.md') }}">Build from source</a></li><li><a href="{{ get_url(path='@/docs/contributing.md') }}">Contributing</a></li><li><a href="{{ get_url(path='@/docs/keyboard-shortcuts.md') }}">Keyboard shortcuts</a></li></ul>
+    </aside>
+  </div>
+  <section class="project-news" aria-labelledby="news-title">
+    <h2 id="news-title">News</h2>
+    {% set updates = get_section(path="news/_index.md") %}
+    {% for post in updates.pages[:1] %}<article><time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time><div><h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3><p>{{ post.description }}</p></div></article>{% endfor %}
+    <p><a href="{{ get_url(path='@/news/_index.md') }}">All updates</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='news/atom.xml') }}">Atom feed</a></p>
+  </section>
+</div>
+{% endblock content %}
