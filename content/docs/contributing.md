@@ -9,7 +9,7 @@ Search the [existing issues](https://github.com/moooossee/moose/issues) before o
 
 - Moose version, Linux distribution, and installation method.
 - Steps to reproduce the problem, what you expected, and what happened.
-- Model and Ollama version when the issue involves a response or connection.
+- Provider, model ID and Ollama version when relevant. For a custom provider, include the API format and authentication method without sharing the key.
 - A relevant screenshot or error message, if useful.
 
 Remove private conversations, documents, credentials, and server details before sharing screenshots or logs.

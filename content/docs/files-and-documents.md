@@ -13,6 +13,8 @@ Attachments and drafts can remain available between sessions, so you can come ba
 
 Select a model with vision support before asking about an image. A text-only model does not gain vision capabilities from an attachment.
 
+Images are also available with compatible NVIDIA NIM and Cloudflare Workers AI models. For a manually added custom model, enable **Images** in the provider's model settings only if the service accepts image input. See [Models and providers](@/docs/models-and-providers.md).
+
 ## PDFs and text
 
 PDFs need selectable text. Moose uses text extraction; scanned pages are not read automatically. Convert scanned material to searchable text with an OCR tool before importing it.

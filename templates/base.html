@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark light">
   {% if page is defined %}{% set meta_title = page.title ~ " · Moose" %}{% set meta_description = page.description | default(value=config.description) %}{% set canonical = page.permalink %}
   {% elif section is defined and section.path != "/" %}{% set meta_title = section.title ~ " · Moose" %}{% set meta_description = section.description | default(value=config.description) %}{% set canonical = section.permalink %}
-  {% else %}{% set meta_title = "Moose — Chat with local AI on Linux" %}{% set meta_description = config.description %}{% set canonical = config.base_url ~ "/" %}{% endif %}
+  {% else %}{% set meta_title = "Moose — Chat with local and cloud AI on Linux" %}{% set meta_description = config.description %}{% set canonical = config.base_url ~ "/" %}{% endif %}
   <title>{{ meta_title }}</title>
   <meta name="description" content="{{ meta_description }}">
   <meta property="og:title" content="{{ meta_title }}">
@@ -14,6 +14,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:site_name" content="Moose">
+  <meta property="og:image" content="{{ get_url(path='images/chat.png') }}">
+  <meta property="og:image:alt" content="Moose on Linux with saved conversations and a formatted AI response">
+  <meta property="og:image:width" content="1650">
+  <meta property="og:image:height" content="982">
   <meta name="theme-color" content="#20211f">
   <link rel="canonical" href="{{ canonical }}">
   <link rel="icon" type="image/svg+xml" href="{{ get_url(path='images/moose.svg') }}">
@@ -21,7 +25,7 @@
   <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}">
   <script src="{{ get_url(path='js/theme.js', cachebust=true) }}"></script>
   <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
-  {% if current_path is defined and current_path == "/news/" %}<link rel="alternate" type="application/atom+xml" title="Moose news" href="{{ get_url(path='news/atom.xml') }}">{% endif %}
+  <link rel="alternate" type="application/atom+xml" title="Moose news" href="{{ get_url(path='news/atom.xml') }}">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

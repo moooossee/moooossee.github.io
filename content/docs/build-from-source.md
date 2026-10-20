@@ -25,7 +25,7 @@ The Flatpak build provides the desktop dependencies used by the app.
 
 ## Native build
 
-You need Rust, Meson, GTK 4, libadwaita, GtkSourceView 5, SQLite with FTS5, and Poppler's `pdftotext` tool.
+You need Rust 1.92 or newer, Meson 1.4 or newer, GTK 4, libadwaita, GtkSourceView 5, SQLite with FTS5, and Poppler's `pdftotext` tool. Match the desktop library versions and features in `Cargo.toml`; the Flatpak build uses the GNOME 51 SDK.
 
 ```sh
 meson setup builddir-native -Dgui=true

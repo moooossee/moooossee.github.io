@@ -19,7 +19,7 @@ Local Only is an inference restriction. You still need a network connection to d
 
 Remote connections request permission to share messages and conversation context. You can allow messages in all chats with a provider or ask in each chat.
 
-Remembered permissions apply to the selected provider and server. Before sending, you can review the context that will be shared.
+Remembered permissions apply to the selected provider and server. Custom connections also distinguish the API format and authentication settings. A different Cloudflare account uses a different destination. Before sending, you can review the context that will be shared.
 
 ## File permissions
 

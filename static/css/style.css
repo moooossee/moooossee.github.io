@@ -96,6 +96,8 @@ figcaption { color: var(--muted); font-size: .8125rem; }
 .project-body section p { margin-bottom: 16px; }
 .feature-list { padding-left: 22px; margin: 0 0 20px; }
 .feature-list li { margin-bottom: 7px; }
+.provider-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 24px; padding-left: 22px; margin: 0 0 20px; }
+.provider-list li { overflow-wrap: anywhere; }
 .project-details { border-left: 1px solid var(--line); padding-left: 25px; font-size: .875rem; }
 .project-details dl { margin: 0 0 27px; }
 .project-details dt { color: var(--muted); margin-top: 12px; }
@@ -206,6 +208,7 @@ figcaption { color: var(--muted); font-size: .8125rem; }
   .project-page { padding-top: 28px; }
   .project-heading { gap: 15px; }
   .project-heading p { font-size: .875rem; }
+  .provider-list { grid-template-columns: 1fr; }
   .project-links { display: flex; flex-wrap: wrap; gap: 8px 14px; }
   .project-links > span { display: none; }
   .command-line { padding: 10px; gap: 8px; font-size: .8125rem; }

@@ -1,6 +1,6 @@
 +++
 title = "Getting started"
-description = "Install Moose and start your first conversation."
+description = "Install Moose, choose local Ollama or a cloud provider, and start your first conversation."
 weight = 1
 +++
 ## Install from Flathub
@@ -19,7 +19,7 @@ Launch Moose from your desktop's app menu, or run:
 flatpak run io.github.moooossee.Moose
 ```
 
-## Choose your first model
+## Start with a local model
 
 1. Open Moose and follow the setup steps.
 2. Use Moose-managed Ollama for a local setup. The Flatpak app can install and manage it for you.
@@ -27,6 +27,18 @@ flatpak run io.github.moooossee.Moose
 4. Select the model and send your first message.
 
 Model downloads need an internet connection and enough disk space. Larger models generally need more memory. Start small if you are unsure what your machine can handle.
+
+Moose reports failed and incomplete downloads. Open download history to review an error or retry a download. Managed Ollama stops when you close Moose and starts again when you need it.
+
+## Connect a cloud or custom provider
+
+Choose **Connect a Provider** during setup to use your own provider account. Select a built-in provider, enter your API key, and choose how Moose should request permission to share messages.
+
+NVIDIA NIM uses your NVIDIA API key. Cloudflare Workers AI also needs your Cloudflare account ID and an API token with Workers AI permission.
+
+For a compatible service that is not listed, choose **Custom Provider** and enter its API base URL, API format and authentication settings. You can discover models automatically or add exact model IDs yourself.
+
+See [Models and providers](@/docs/models-and-providers.md) for the full provider list and setup details. Read [Privacy and sharing](@/docs/privacy.md) before sending private content to a remote service.
 
 ## Bring a file
 
@@ -38,7 +50,9 @@ Images need a model with vision support. PDFs need selectable text; scanned page
 
 Chats and drafts save on your computer. You can return to a conversation, edit a message, retry an answer, or export a chat.
 
-You can also choose an existing Ollama instance or a supported cloud provider. See [Models and providers](@/docs/models-and-providers.md) before connecting, and [Privacy and sharing](@/docs/privacy.md) to understand what leaves your device.
+Answers display Markdown, highlighted code and mathematical formulas while they arrive. You can select text or scroll up to read earlier content while generation continues. Reasoning appears separately when the model provides it.
+
+If saving a completed response fails, Moose keeps it visible in the current chat so you can still read and copy it.
 
 ## Update Moose
 
