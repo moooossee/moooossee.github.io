@@ -7,13 +7,13 @@
       <img src="{{ get_url(path='images/moose.svg') }}" width="64" height="64" alt="">
       <div><h1 id="project-title">Moose</h1><p>Chat with local and cloud AI on Linux.</p></div>
     </div>
-    <p>Ask questions, write code and work with your files in a native GTK 4 and libadwaita app. Run models locally with Ollama, choose a cloud provider, or add your own compatible connection. Conversations, drafts and your document library are saved on your computer.</p>
+    <p>Ask questions, write code and work with your files in a native Linux app. Let Moose install and maintain Ollama for local models, choose a cloud provider, or add your own compatible connection. Conversations, drafts and your document library are saved on your computer.</p>
     <p class="project-links"><a href="{{ config.extra.flathub }}">Download from Flathub</a><span aria-hidden="true"> / </span><a href="{{ config.extra.repository }}">Source code</a><span aria-hidden="true"> / </span><a href="{{ latest_release.permalink }}">v{{ config.extra.version }} release notes</a></p>
   </section>
   <section class="install-block" id="install" aria-labelledby="install-title">
     <h2 id="install-title">Install</h2>
     <div class="command-line"><span class="prompt" aria-hidden="true">$</span><code>{{ config.extra.install_command }}</code><button class="copy-button" type="button" data-copy="{{ config.extra.install_command }}" aria-label="Copy install command">Copy</button></div>
-    <p class="install-note">Requires <a href="https://flatpak.org/setup/">Flatpak and the Flathub remote</a>. Moose can install and manage Ollama for you. <a href="{{ get_url(path='@/docs/getting-started.md') }}">Getting started</a></p>
+    <p class="install-note">Requires <a href="https://flatpak.org/setup/">Flatpak and the Flathub remote</a>. Install Moose, then set up Ollama or connect a provider from the app. <a href="{{ get_url(path='@/docs/getting-started.md') }}">Getting started</a></p>
   </section>
   <figure class="screenshot-viewer">
     <a href="{{ get_url(path='images/chat.png') }}" class="screenshot-link" aria-label="Open full-size Chat screenshot"><img id="app-screenshot" src="{{ get_url(path='images/chat.png') }}" width="1650" height="982" fetchpriority="high" alt="Moose's Linux interface with saved conversations and a formatted model response."></a>
@@ -31,13 +31,15 @@
       <section id="features" aria-labelledby="features-title">
         <h2 id="features-title">Features</h2>
         <ul class="feature-list">
-          <li>Browse, download and manage local models, with download history and retries.</li>
+          <li>Install, update and repair Moose-managed Ollama while keeping your models and chats.</li>
+          <li>Browse and download local models, review download history and retry interrupted downloads.</li>
           <li>Attach images, PDFs, text files and code.</li>
           <li>Search a local document library with source excerpts.</li>
-          <li>Read and select formatted Markdown, highlighted code and math as answers arrive.</li>
+          <li>Read Markdown, highlighted code and math as answers arrive, and copy tables as Markdown.</li>
           <li>View model reasoning separately and scroll back through a chat while a response continues.</li>
           <li>Edit messages, retry answers and keep conversation versions.</li>
           <li>Save drafts automatically and export your chats.</li>
+          <li>View and copy Moose and Ollama logs, along with model download error details.</li>
         </ul>
         <p>Images require a model with vision support. PDFs need selectable text. See <a href="{{ get_url(path='@/docs/files-and-documents.md') }}">Files and documents</a>.</p>
       </section>
@@ -48,6 +50,12 @@
         <p>Custom connections support OpenAI Chat Completions, OpenAI Responses, Anthropic Messages and Google Gemini APIs. Discover models automatically or save their exact IDs, and choose image support for each manual model.</p>
         <p>Local Only mode restricts inference to Moose-managed Ollama. Remote connections ask permission before sharing messages; files need separate permission. API keys use your desktop's secret storage.</p>
         <p><a href="{{ get_url(path='@/docs/models-and-providers.md') }}">Models and providers</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/privacy.md') }}">Privacy and sharing</a></p>
+      </section>
+      <section aria-labelledby="ollama-title">
+        <h2 id="ollama-title">Keep Ollama up to date</h2>
+        <p>Open Preferences → Ollama &amp; Diagnostics to check for engine updates or repair an installation. Interrupted engine downloads can resume, and a failed update restores the previous installation. Your models, chats and connections stay put.</p>
+        <p>If a model needs a newer Ollama version, Moose can update its managed installation and retry the download. You can also view recent logs and copy error details when you need help.</p>
+        <p><a href="{{ get_url(path='@/docs/models-and-providers.md#update-or-repair-managed-ollama') }}">Update or repair Ollama</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/getting-started.md#need-help') }}">Troubleshooting</a></p>
       </section>
     </div>
     <aside class="project-details" aria-labelledby="project-details-title">

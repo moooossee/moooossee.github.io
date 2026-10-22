@@ -12,7 +12,11 @@ Search the [existing issues](https://github.com/moooossee/moose/issues) before o
 - Provider, model ID and Ollama version when relevant. For a custom provider, include the API format and authentication method without sharing the key.
 - A relevant screenshot or error message, if useful.
 
+For download or engine problems, use **Copy Details** in the error dialog or download panel. Recent logs are available under **Preferences → Ollama & Diagnostics → Moose Log** or **Ollama Log**; the copy button includes the Moose version and log location. Include the Moose log for setup or update errors and the Ollama log if the engine will not start or reports a runtime error.
+
 Remove private conversations, documents, credentials, and server details before sharing screenshots or logs.
+
+See [getting help](@/docs/getting-started.md#need-help) and [logs and privacy](@/docs/privacy.md#logs-and-diagnostics) for more details.
 
 ## Suggest an idea
 

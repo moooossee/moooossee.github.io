@@ -13,7 +13,7 @@ Storage location and inference destination are different things: a locally saved
 
 Enable **Local Only** in Privacy settings to restrict inference to Ollama managed by Moose. Cloud and external Ollama connections are blocked while this mode is enabled.
 
-Local Only is an inference restriction. You still need a network connection to download models or install updates.
+Local Only is an inference restriction. Downloading models, checking for Ollama updates and downloading engine packages still use the network. Checking for engine updates contacts GitHub for official Ollama release information; it does not send your conversation context.
 
 ## Remote message permissions
 
@@ -30,6 +30,12 @@ When approved, relevant file content can be sent with the conversation context. 
 ## Reset permissions
 
 Open Privacy settings to review and reset remembered permissions. Resetting clears those permissions and the permissions in existing chats. Local Only blocks remote connections regardless of remembered permissions.
+
+## Logs and diagnostics
+
+Moose keeps recent application and managed Ollama logs on your device. Open **Preferences → Ollama & Diagnostics** to view **Moose Log** or **Ollama Log**. Use the copy button to include the recent entries, Moose version and log location in a problem report.
+
+The log viewer filters common credential patterns and removes credentials, query strings and fragments from URLs. Logs and copied error details can still contain server addresses, model names, file paths and other information about your setup. Review them before sharing. Copying a log does not submit it to GitHub or send it to a provider.
 
 ## This website
 

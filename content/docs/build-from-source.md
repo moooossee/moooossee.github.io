@@ -5,12 +5,14 @@ weight = 6
 +++
 ## Get the source
 
+To build the 0.7.0 release:
+
 ```sh
-git clone https://github.com/moooossee/moose.git
+git clone --branch v0.7.0 https://github.com/moooossee/moose.git
 cd moose
 ```
 
-Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the repository's `Cargo.toml` and Flatpak manifest for the versions required by the current source.
+Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the release's [Cargo.toml](https://github.com/moooossee/moose/blob/v0.7.0/Cargo.toml) and [Flatpak manifest](https://github.com/moooossee/moose/blob/v0.7.0/io.github.moooossee.Moose.yml) for its dependencies. For development work, clone the default branch instead or follow [Contributing](@/docs/contributing.md).
 
 ## Flatpak build
 
@@ -21,7 +23,7 @@ flatpak run org.flatpak.Builder --user --install --install-deps-from=flathub --f
 flatpak run io.github.moooossee.Moose
 ```
 
-The Flatpak build provides the desktop dependencies used by the app.
+The Flatpak build provides the desktop dependencies used by the app. Once Moose is running, use its setup screen to install managed Ollama or connect an existing provider. Engine updates and repairs are available from **Preferences → Ollama & Diagnostics → Manage Ollama**; building Moose does not install an engine for you.
 
 ## Native build
 

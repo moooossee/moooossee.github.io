@@ -1,6 +1,6 @@
 base_url = "https://moooossee.github.io"
 title = "Moose"
-description = "Chat with local and cloud AI on Linux. Manage Ollama, connect your own providers, and bring images and documents into a native GTK and libadwaita app."
+description = "Chat with local and cloud AI on Linux. Install, update and repair Ollama, connect your own providers, and work with images and documents."
 default_language = "en"
 compile_sass = false
 minify_html = true
@@ -17,8 +17,8 @@ theme = "github-dark"
 style = "inline"
 
 [extra]
-version = "0.6.5"
-release_notes = "changelog/0-6-5.md"
+version = "0.7.0"
+release_notes = "changelog/0-7-0.md"
 providers = ["Ollama Cloud", "Groq", "OpenAI", "Anthropic Claude", "Google Gemini", "Mistral AI", "DeepSeek", "NVIDIA NIM", "Cloudflare Workers AI"]
 repository = "https://github.com/moooossee/moose"
 flathub = "https://flathub.org/apps/io.github.moooossee.Moose"
