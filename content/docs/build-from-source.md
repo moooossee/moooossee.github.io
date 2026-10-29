@@ -5,14 +5,14 @@ weight = 6
 +++
 ## Get the source
 
-To build the 0.7.0 release:
+To build the 0.7.5 release:
 
 ```sh
-git clone --branch v0.7.0 https://github.com/moooossee/moose.git
+git clone --branch v0.7.5 https://github.com/moooossee/moose.git
 cd moose
 ```
 
-Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the release's [Cargo.toml](https://github.com/moooossee/moose/blob/v0.7.0/Cargo.toml) and [Flatpak manifest](https://github.com/moooossee/moose/blob/v0.7.0/io.github.moooossee.Moose.yml) for its dependencies. For development work, clone the default branch instead or follow [Contributing](@/docs/contributing.md).
+Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the release's [Cargo.toml](https://github.com/moooossee/moose/blob/v0.7.5/Cargo.toml) and [Flatpak manifest](https://github.com/moooossee/moose/blob/v0.7.5/io.github.moooossee.Moose.yml) for its dependencies. For development work, clone the default branch instead or follow [Contributing](@/docs/contributing.md).
 
 ## Flatpak build
 

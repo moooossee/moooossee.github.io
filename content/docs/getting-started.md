@@ -1,6 +1,6 @@
 +++
 title = "Getting started"
-description = "Install Moose, choose a connection, keep Ollama up to date and find help when you need it."
+description = "Install Moose, choose a connection, download an Ollama or Hugging Face model and start chatting."
 weight = 1
 +++
 ## Install from Flathub
@@ -23,24 +23,36 @@ flatpak run io.github.moooossee.Moose
 
 1. Open Moose, choose **Start Guide**, then **Create Ollama Instance**.
 2. Choose **Install Ollama**. Once it is ready, give the managed connection a name and use the suggested port.
-3. Choose **Create Managed Instance**, then open the model manager and download a model that fits your machine.
-4. Select your model and send your first message.
+3. Choose **Create Managed Instance**, then open the model manager with **Ctrl+M** and download a model that fits your machine.
+4. When the download finishes, choose **New Chat** in the notification, or select the model and send your first message.
 
 To add a local connection later, open the provider switcher and choose **Add Provider → Set Up for Me → Continue**. If Ollama is already installed, choose **Add Managed Connection**.
 
 Model downloads need an internet connection and enough disk space. Larger models generally need more memory. Start small if you are unsure what your machine can handle.
 
-Moose reports failed and incomplete model downloads. Open download history to review an error or retry a download. You can select error text or use **Copy Details** in the download panel when it is available. Managed Ollama stops when you close Moose and starts again when you need it.
+Managed Ollama stops when you close Moose and starts again when you need it.
+
+## Download a model
+
+With an Ollama connection selected, open the model manager and choose **Download Model…**. Enter an Ollama model name such as `llama3.2:1b`, paste an Ollama or Hugging Face repository link, or paste an `ollama run` or `ollama pull` command. Moose shows the source and download destination before you start.
+
+For a Hugging Face model, choose a compatible GGUF repository. Expand **Variant** to enter a quantization such as `Q4_K_M` or an exact GGUF filename, or leave it on **Automatic**. You can also paste a model link into the model search field to open the download dialog.
+
+Choose **Download** to begin. If that chat model is already installed, the button changes to **New Chat**. You can keep chatting while a download runs.
+
+The progress panel clears when a download finishes, fails or is cancelled. Open **Download Jobs** to review its saved status. For a failed download, use **Details** in the notification or open the failed job, then choose **Edit and Retry** to check the model reference and try again.
+
+See [Models and providers](@/docs/models-and-providers.md#download-a-model) for supported inputs, Hugging Face variants and download troubleshooting.
 
 ## Connect a cloud or custom provider
 
-Open the provider switcher and choose **Add Provider → Cloud Provider → Continue**. Select a built-in provider, enter your API key, choose how Moose should request permission to share messages, then choose **Save and Connect**.
+During first-time setup, choose **Connect a Provider** to open the provider chooser, then select **Cloud Provider → Continue**. To add another connection later, use **Add Provider** in the provider switcher. Select a built-in provider, enter your API key, choose how Moose should request permission to share messages, then choose **Save and Connect**.
 
 NVIDIA NIM uses your NVIDIA API key. Cloudflare Workers AI also needs your Cloudflare account ID and an API token with Workers AI permission.
 
 For a compatible service that is not listed, choose **Custom Provider** and enter its API base URL, API format and authentication settings. You can discover models automatically or add exact model IDs yourself.
 
-To use an Ollama server you already run, choose **Add Provider → Connect Existing → Continue**, then enter its name and address. The first-run guide's **Connect a Provider** button also opens this connection screen.
+To use an Ollama server you already run, select **Connect Existing → Continue** in the same provider chooser, then enter its name and address.
 
 See [Models and providers](@/docs/models-and-providers.md) for the full provider list and setup details. Read [Privacy and sharing](@/docs/privacy.md) before sending private content to a remote service.
 

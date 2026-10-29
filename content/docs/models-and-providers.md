@@ -1,11 +1,11 @@
 +++
 title = "Models and providers"
-description = "Install, update or repair Ollama, choose a cloud provider, or connect a compatible API."
+description = "Download Ollama and Hugging Face GGUF models, manage Ollama, or connect a cloud provider and compatible API."
 weight = 2
 +++
 ## Add a connection
 
-Open the provider switcher and choose **Add Provider**. Pick the setup you want, then choose **Continue**:
+Open the provider switcher and choose **Add Provider**, or choose **Connect a Provider** during first-time setup. Pick the setup you want, then choose **Continue**:
 
 - **Set Up for Me** lets Moose install and manage Ollama on your device.
 - **Connect Existing** connects to an Ollama server you already run.
@@ -19,17 +19,54 @@ The Flatpak app can install and manage Ollama for you. This is the local backend
 
 Choose **Install Ollama** in the managed setup screen. After installation, give the connection a name and use the suggested managed port, then choose **Create Managed Instance**. If the engine is already installed, choose **Add Managed Connection**. Moose suggests a port starting at 11435 and skips ports assigned to its other managed connections; port 11434 is reserved for external Ollama.
 
-Browse models in Moose's model manager. You can download models, review download history, and retry interrupted downloads. You can keep chatting while a model downloads.
+Browse models in Moose's model manager. You can download models from Ollama and compatible GGUF repositories on Hugging Face, review download history, and retry failed or interrupted downloads. You can keep chatting while a model downloads.
 
-Failed or incomplete model downloads show an error instead of being treated as finished. You can select the status text or use **Copy Details** when it is available. Managed Ollama shuts down when Moose closes. If another Moose instance is already using the same managed installation, close that instance before trying again.
+Managed Ollama shuts down when Moose closes. If another Moose instance is already using the same managed installation, close that instance before trying again.
 
 Choose a model for the task: general conversation, coding, reasoning, or vision. Available features depend on the selected model. A text-only model cannot interpret an image.
 
 Managed Ollama supports GPU acceleration through Vulkan when available. You can enable or disable GPU acceleration in the managed hardware preferences and check the active backend in the provider status.
 
+## Download a model
+
+Select an Ollama connection, open the model manager with **Ctrl+M**, and choose **Download Model…**. The **Model Name or Link** field accepts:
+
+- An Ollama model name, such as `llama3.2:1b`.
+- An Ollama model link, such as `https://ollama.com/library/llama3.2:1b`.
+- An `ollama run` or `ollama pull` command, such as `ollama pull llama3.2:1b`, without extra command arguments.
+- A Hugging Face repository link or a reference in the form `hf.co/owner/model-GGUF`, using the actual repository owner and name.
+
+The dialog previews the model reference, its source and the download destination. With a managed connection, the download goes to Ollama on your device. With an external Ollama connection, it goes to that server. Cloud services manage their own models.
+
+You can also paste a model link, a tagged model name or an Ollama command into model search. If it is not already installed and there are no matching catalog entries, choose the download result to open the dialog with the reference filled in.
+
+### Hugging Face GGUF models
+
+Paste the link to the repository itself, using `huggingface.co` or `hf.co`. Use the repository root rather than a branch page or an individual file link.
+
+Moose shows a **Variant** option for Hugging Face models. Leave it on **Automatic**, or expand it and enter a quantization such as `Q4_K_M` or an exact GGUF filename in **Quantization or Filename**. This field overrides a variant already included after `:` in the model reference.
+
+The selected Ollama instance downloads and runs the model. Choose a GGUF supported by that Ollama version, with a size that fits the memory available on the device or server. Images and reasoning still depend on the capabilities Ollama reports for the model.
+
+Use **Browse Hugging Face Models** to open the GGUF model catalog in your browser. Installed Hugging Face models have an **Open on Hugging Face** button that returns to their repository. Searching for `Hugging Face` also finds installed models from that source.
+
+### Start a chat after a download
+
+When a chat model finishes downloading, choose **New Chat** in the completion notification to open a conversation with that model selected. Keep the original Ollama connection selected for this action.
+
+If you enter a model that is already installed and supports chat, the download dialog offers **New Chat** immediately. Moose recognizes equivalent Hugging Face hostnames and model names with or without the `:latest` tag.
+
+### Failed or cancelled downloads
+
+The progress panel clears after a download finishes, fails or is cancelled. **Download Jobs** keeps the saved status and error details for the selected connection.
+
+Choose **Details** in a failure notification or open the failed job in **Download Jobs**. You can select or copy the error details and choose **Edit and Retry** to change the model reference or Hugging Face variant before starting again. Select the original connection before retrying.
+
+For Hugging Face errors, check the repository, variant and Ollama compatibility. Access errors also require checking that the selected Ollama instance can access the repository. If the error says a newer Ollama version is required, use the update steps below.
+
 ## Update or repair managed Ollama
 
-Moose 0.7.0 includes release details for Ollama 0.40.6. You can check for newer stable Ollama releases without waiting for a new Moose version:
+Moose 0.7.5 includes release details for Ollama 0.40.6. You can check for newer stable Ollama releases without waiting for a new Moose version:
 
 1. Open **Preferences → Ollama & Diagnostics → Manage Ollama**.
 2. Compare **Installed Version** and **Available Version**, then choose **Check for Updates** to refresh the available release from GitHub.
@@ -55,7 +92,7 @@ Review copied details before sharing them. See [Privacy and sharing](@/docs/priv
 
 ## An existing Ollama instance
 
-Choose **Add Provider → Connect Existing → Continue**, enter an instance name and **Ollama URL**, choose your message sharing preference, then select **Connect**. The first-run guide's **Connect a Provider** button opens the same screen.
+Choose **Add Provider → Connect Existing → Continue**, enter an instance name and **Ollama URL**, choose your message sharing preference, then select **Connect**. During first-time setup, **Connect a Provider** opens the provider chooser; select **Connect Existing → Continue** there.
 
 External Ollama connections require HTTPS. HTTP is available only for connections on the same device. When you use a remote server, approved messages and relevant file content are sent to that server.
 

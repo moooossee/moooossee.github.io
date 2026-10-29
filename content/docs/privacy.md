@@ -13,7 +13,15 @@ Storage location and inference destination are different things: a locally saved
 
 Enable **Local Only** in Privacy settings to restrict inference to Ollama managed by Moose. Cloud and external Ollama connections are blocked while this mode is enabled.
 
-Local Only is an inference restriction. Downloading models, checking for Ollama updates and downloading engine packages still use the network. Checking for engine updates contacts GitHub for official Ollama release information; it does not send your conversation context.
+Local Only is an inference restriction. Downloading models from Ollama or Hugging Face, checking for Ollama updates and downloading engine packages still use the network. Checking for engine updates contacts GitHub for official Ollama release information; it does not send your conversation context.
+
+## Model download destinations
+
+Hugging Face models run through the Ollama connection you select. The download dialog shows whether the model will be downloaded by managed Ollama on your device or by an external Ollama server. Model downloads contact the model source through that Ollama instance.
+
+The model source and inference destination are separate choices. A model from Hugging Face can run locally with managed Ollama, while one downloaded to a remote Ollama server runs on that server. Remote chat sharing permissions still apply.
+
+**Browse Hugging Face Models** and **Open on Hugging Face** open that service in your browser, where its own privacy policy applies.
 
 ## Remote message permissions
 

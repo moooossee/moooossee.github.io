@@ -7,7 +7,7 @@
       <img src="{{ get_url(path='images/moose.svg') }}" width="64" height="64" alt="">
       <div><h1 id="project-title">Moose</h1><p>Chat with local and cloud AI on Linux.</p></div>
     </div>
-    <p>Ask questions, write code and work with your files in a native Linux app. Let Moose install and maintain Ollama for local models, choose a cloud provider, or add your own compatible connection. Conversations, drafts and your document library are saved on your computer.</p>
+    <p>Ask questions, write code and work with your files in a native Linux app. Download models from Ollama or bring compatible GGUF models from Hugging Face. Let Moose manage your local Ollama setup, connect an existing server, or choose a cloud provider. Conversations, drafts and your document library are saved on your computer.</p>
     <p class="project-links"><a href="{{ config.extra.flathub }}">Download from Flathub</a><span aria-hidden="true"> / </span><a href="{{ config.extra.repository }}">Source code</a><span aria-hidden="true"> / </span><a href="{{ latest_release.permalink }}">v{{ config.extra.version }} release notes</a></p>
   </section>
   <section class="install-block" id="install" aria-labelledby="install-title">
@@ -28,11 +28,18 @@
   </figure>
   <div class="project-body">
     <div>
+      <section aria-labelledby="latest-release-title">
+        <h2 id="latest-release-title">New in {{ config.extra.version }}</h2>
+        <p>Paste a model link or an Ollama command to download a model, choose a Hugging Face variant, and start a new chat when it is ready. This release also fixes provider selection during setup and chat backgrounds with custom GTK themes.</p>
+        <p><a href="{{ latest_release.permalink }}">See what changed in {{ config.extra.version }}</a></p>
+      </section>
       <section id="features" aria-labelledby="features-title">
         <h2 id="features-title">Features</h2>
         <ul class="feature-list">
           <li>Install, update and repair Moose-managed Ollama while keeping your models and chats.</li>
-          <li>Browse and download local models, review download history and retry interrupted downloads.</li>
+          <li>Download Ollama and compatible Hugging Face GGUF models by name, repository link or Ollama command.</li>
+          <li>Choose a Hugging Face quantization or GGUF filename, then start a chat with the downloaded model.</li>
+          <li>Review download history, copy error details and edit failed downloads before trying again.</li>
           <li>Attach images, PDFs, text files and code.</li>
           <li>Search a local document library with source excerpts.</li>
           <li>Read Markdown, highlighted code and math as answers arrive, and copy tables as Markdown.</li>
@@ -42,6 +49,13 @@
           <li>View and copy Moose and Ollama logs, along with model download error details.</li>
         </ul>
         <p>Images require a model with vision support. PDFs need selectable text. See <a href="{{ get_url(path='@/docs/files-and-documents.md') }}">Files and documents</a>.</p>
+      </section>
+      <section aria-labelledby="hugging-face-title">
+        <h2 id="hugging-face-title">Bring models from Hugging Face</h2>
+        <p>Open Download Model and paste a Hugging Face repository link. Leave the variant on Automatic, or choose a quantization such as <code>Q4_K_M</code> or an exact GGUF filename. Moose shows the model source and the Ollama connection that will download it.</p>
+        <p>You can also paste a model link into model search. Installed Hugging Face models link back to their repository, and an already installed chat model can open a new conversation straight from the download dialog.</p>
+        <p>Choose a GGUF model supported by your Ollama version and suited to the memory available on the device running it.</p>
+        <p><a href="{{ get_url(path='@/docs/models-and-providers.md#hugging-face-gguf-models') }}">Download a Hugging Face model</a></p>
       </section>
       <section aria-labelledby="connections-title">
         <h2 id="connections-title">Local and remote models</h2>
