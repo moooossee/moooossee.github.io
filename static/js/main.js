@@ -12,7 +12,7 @@
     themeButton.addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
       document.documentElement.dataset.theme = next;
-      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#20211f' : '#fafaf8');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#222226' : '#fafafb');
       try { localStorage.setItem('moose-theme', next); } catch {}
       updateThemeLabel();
     });

@@ -1,6 +1,6 @@
 base_url = "https://moooossee.github.io"
 title = "Moose"
-description = "Chat with local and cloud AI on Linux. Download Ollama and Hugging Face GGUF models, connect your own providers, and work with images and documents."
+description = "Chat with local or cloud AI on Linux. Search the web, check calculations, find models and work with your files in Moose."
 default_language = "en"
 compile_sass = false
 minify_html = true
@@ -13,13 +13,15 @@ external_links_no_referrer = true
 smart_punctuation = true
 
 [markdown.highlighting]
-theme = "github-dark"
+light_theme = "github-light"
+dark_theme = "github-dark"
 style = "inline"
+add_color_scheme = false
 
 [extra]
-version = "0.7.5"
-release_notes = "changelog/0-7-5.md"
-providers = ["Ollama Cloud", "Groq", "OpenAI", "Anthropic Claude", "Google Gemini", "Mistral AI", "DeepSeek", "NVIDIA NIM", "Cloudflare Workers AI"]
+version = "0.8.0"
+release_notes = "changelog/0-8-0.md"
+providers = ["Ollama Cloud", "OpenRouter", "Groq", "OpenAI", "Anthropic Claude", "Google Gemini", "Mistral AI", "DeepSeek", "NVIDIA NIM", "Cloudflare Workers AI"]
 repository = "https://github.com/moooossee/moose"
 flathub = "https://flathub.org/apps/io.github.moooossee.Moose"
 install_command = "flatpak install flathub io.github.moooossee.Moose"

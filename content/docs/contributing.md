@@ -12,7 +12,9 @@ Search the [existing issues](https://github.com/moooossee/moose/issues) before o
 - Provider, model ID and Ollama version when relevant. For a custom provider, include the API format and authentication method without sharing the key.
 - A relevant screenshot or error message, if useful.
 
-For model download problems, open **Details** in the failure notification or select the failed job in **Download Jobs**, then use **Copy Details**. Include the model reference and Hugging Face variant when relevant. Recent logs are available under **Preferences → Ollama & Diagnostics → Moose Log** or **Ollama Log**; the copy button includes the Moose version and log location. Include the Moose log for setup or update errors and the Ollama log if the engine will not start or reports a runtime error.
+For model download problems, open **Details** in the failure notification or find the failed job in **Models → More Options → Downloads**, then use **Copy Details**. Include the model reference and Hugging Face variant when relevant. Recent logs are available under **Preferences → Ollama & Diagnostics → Moose Log** or **Ollama Log**; the copy button includes the Moose version and log location. Include the Moose log for setup or update errors and the Ollama log if the engine will not start or reports a runtime error.
+
+For Web or Calculator problems, include the selected provider and model, which tool was enabled and the message shown in its activity. For Web, also name the search service and whether Local Only was enabled. For an incomplete answer, say whether **Continue** worked and include the selected Ollama context window if you changed it.
 
 Remove private conversations, documents, credentials, and server details before sharing screenshots or logs.
 

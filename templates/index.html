@@ -7,7 +7,7 @@
       <img src="{{ get_url(path='images/moose.svg') }}" width="64" height="64" alt="">
       <div><h1 id="project-title">Moose</h1><p>Chat with local and cloud AI on Linux.</p></div>
     </div>
-    <p>Ask questions, write code and work with your files in a native Linux app. Download models from Ollama or bring compatible GGUF models from Hugging Face. Let Moose manage your local Ollama setup, connect an existing server, or choose a cloud provider. Conversations, drafts and your document library are saved on your computer.</p>
+    <p>Ask questions, work on your writing and talk through code in a native Linux app. Run models on your computer with Ollama, connect your own server, or choose an online service such as OpenRouter. Bring your files into the conversation, look things up with a compatible model, and keep your chats and drafts on your device.</p>
     <p class="project-links"><a href="{{ config.extra.flathub }}">Download from Flathub</a><span aria-hidden="true"> / </span><a href="{{ config.extra.repository }}">Source code</a><span aria-hidden="true"> / </span><a href="{{ latest_release.permalink }}">v{{ config.extra.version }} release notes</a></p>
   </section>
   <section class="install-block" id="install" aria-labelledby="install-title">
@@ -21,7 +21,7 @@
       <div class="preview-tabs" role="group" aria-label="App screenshots">
         <button type="button" class="preview-tab" data-image="{{ get_url(path='images/chat.png') }}" data-alt="Moose's Linux interface with saved conversations and a formatted model response." data-caption="Chat with a local model." data-label="Chat" aria-label="Show Chat screenshot" aria-pressed="true">Chat</button>
         <button type="button" class="preview-tab" data-image="{{ get_url(path='images/files.png') }}" data-alt="The Files view with local attachments and library documents." data-caption="Browse attachments and library documents." data-label="Files" aria-label="Show Files screenshot" aria-pressed="false">Files</button>
-        <button type="button" class="preview-tab" data-image="{{ get_url(path='images/privacy.png') }}" data-alt="Privacy settings with Local Only mode and sharing permissions." data-caption="Configure local inference and remote sharing permissions." data-label="Privacy" aria-label="Show Privacy screenshot" aria-pressed="false">Privacy</button>
+        <button type="button" class="preview-tab" data-image="{{ get_url(path='images/privacy.png') }}" data-alt="Privacy settings with Local Only mode and sharing permissions." data-caption="Choose what to share with online services." data-label="Privacy" aria-label="Show Privacy screenshot" aria-pressed="false">Privacy</button>
       </div>
       <figcaption id="preview-caption" aria-live="polite">Chat with a local model.</figcaption>
     </div>
@@ -30,29 +30,39 @@
     <div>
       <section aria-labelledby="latest-release-title">
         <h2 id="latest-release-title">New in {{ config.extra.version }}</h2>
-        <p>Paste a model link or an Ollama command to download a model, choose a Hugging Face variant, and start a new chat when it is ready. This release also fixes provider selection during setup and chat backgrounds with custom GTK themes.</p>
+        <p>{{ latest_release.description }}</p>
         <p><a href="{{ latest_release.permalink }}">See what changed in {{ config.extra.version }}</a></p>
       </section>
       <section id="features" aria-labelledby="features-title">
         <h2 id="features-title">Features</h2>
         <ul class="feature-list">
+          <li>Find models for everyday questions, coding, pictures or documents, with filters for download size and features.</li>
+          <li>Download Ollama and compatible Hugging Face GGUF models by name, link or Ollama command.</li>
           <li>Install, update and repair Moose-managed Ollama while keeping your models and chats.</li>
-          <li>Download Ollama and compatible Hugging Face GGUF models by name, repository link or Ollama command.</li>
-          <li>Choose a Hugging Face quantization or GGUF filename, then start a chat with the downloaded model.</li>
-          <li>Review download history, copy error details and edit failed downloads before trying again.</li>
-          <li>Attach images, PDFs, text files and code.</li>
-          <li>Search a local document library with source excerpts.</li>
-          <li>Read Markdown, highlighted code and math as answers arrive, and copy tables as Markdown.</li>
-          <li>View model reasoning separately and scroll back through a chat while a response continues.</li>
-          <li>Edit messages, retry answers and keep conversation versions.</li>
-          <li>Save drafts automatically and export your chats.</li>
-          <li>View and copy Moose and Ollama logs, along with model download error details.</li>
+          <li>Search the web, read public pages and check calculations with compatible Ollama and Ollama Cloud models.</li>
+          <li>Attach images, PDFs, text files and code, or search your local document library with source excerpts.</li>
+          <li>Read formatted code, math and model reasoning as answers arrive, and copy tables as Markdown.</li>
+          <li>Edit messages, try another answer or continue an incomplete response while keeping previous versions.</li>
+          <li>Save drafts automatically and export chats with their tool results and web sources.</li>
+          <li>Review downloads, retry failures and copy logs or error details when you need help.</li>
         </ul>
         <p>Images require a model with vision support. PDFs need selectable text. See <a href="{{ get_url(path='@/docs/files-and-documents.md') }}">Files and documents</a>.</p>
       </section>
+      <section aria-labelledby="find-model-title">
+        <h2 id="find-model-title">Find a model for what you want to do</h2>
+        <p>Open Models and choose Everyday, Coding, Images or Documents. Narrow the list by download size, image input, tool support or multiple languages, and compare versions before choosing one.</p>
+        <p>Model details show estimated memory and storage needs. When Moose manages Ollama, suggestions also consider the memory available on your computer. These are estimates to help you choose; longer chats and images can need more memory. Choose Use beside an installed model to start a chat with it.</p>
+        <p><a href="{{ get_url(path='@/docs/models-and-providers.md#find-a-model') }}">Explore models and filters</a></p>
+      </section>
+      <section aria-labelledby="tools-title">
+        <h2 id="tools-title">Web search and calculations</h2>
+        <p>Look something up or check a calculation without leaving your conversation. With a compatible Ollama or Ollama Cloud model, turn on Web or Calculator in Chat Settings, or type <code>/web</code> or <code>/calculator</code>. You can see what the tools did and read their sources alongside the answer.</p>
+        <p>Web starts with DuckDuckGo, without a search account. Choose Brave Search, SearXNG or Links Only in Preferences → Web. Web asks for separate permission before first use and is blocked by Local Only mode. Calculator runs on your device; its results are shared with your chat's model.</p>
+        <p><a href="{{ get_url(path='@/docs/models-and-providers.md#web-and-calculator') }}">Use Web and Calculator</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/privacy.md#web-permissions') }}">Web permissions</a></p>
+      </section>
       <section aria-labelledby="hugging-face-title">
         <h2 id="hugging-face-title">Bring models from Hugging Face</h2>
-        <p>Open Download Model and paste a Hugging Face repository link. Leave the variant on Automatic, or choose a quantization such as <code>Q4_K_M</code> or an exact GGUF filename. Moose shows the model source and the Ollama connection that will download it.</p>
+        <p>Choose Add Model… in Models and paste a Hugging Face repository link. Leave the variant on Automatic, or choose a quantization such as <code>Q4_K_M</code> or an exact GGUF filename. Moose shows the model source and the Ollama connection that will download it.</p>
         <p>You can also paste a model link into model search. Installed Hugging Face models link back to their repository, and an already installed chat model can open a new conversation straight from the download dialog.</p>
         <p>Choose a GGUF model supported by your Ollama version and suited to the memory available on the device running it.</p>
         <p><a href="{{ get_url(path='@/docs/models-and-providers.md#hugging-face-gguf-models') }}">Download a Hugging Face model</a></p>
@@ -61,8 +71,8 @@
         <h2 id="connections-title">Local and remote models</h2>
         <p>Use Ollama managed by Moose, connect an existing Ollama instance, or bring your own credentials for a cloud provider:</p>
         <ul class="provider-list">{% for provider in config.extra.providers %}<li>{{ provider }}</li>{% endfor %}</ul>
-        <p>Custom connections support OpenAI Chat Completions, OpenAI Responses, Anthropic Messages and Google Gemini APIs. Discover models automatically or save their exact IDs, and choose image support for each manual model.</p>
-        <p>Local Only mode restricts inference to Moose-managed Ollama. Remote connections ask permission before sharing messages; files need separate permission. API keys use your desktop's secret storage.</p>
+        <p>If your service is not listed, add a custom connection using a compatible API. Moose can find available models or let you add them by name. Images and reasoning options depend on the model you choose.</p>
+        <p>Local Only mode uses Moose-managed Ollama and blocks cloud connections, external Ollama and web tools. Remote chats ask permission before sharing messages, and files need separate permission. Keys are kept in your desktop's secure key storage.</p>
         <p><a href="{{ get_url(path='@/docs/models-and-providers.md') }}">Models and providers</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/privacy.md') }}">Privacy and sharing</a></p>
       </section>
       <section aria-labelledby="ollama-title">
