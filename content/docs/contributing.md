@@ -16,6 +16,8 @@ For model download problems, open **Details** in the failure notification or fin
 
 For Web or Calculator problems, include the selected provider and model, which tool was enabled and the message shown in its activity. For Web, also name the search service and whether Local Only was enabled. For an incomplete answer, say whether **Continue** worked and include the selected Ollama context window if you changed it.
 
+For document creation problems, include the file format, provider and model, whether you used a new request or an existing answer, and the error shown with the response. If a preview looks different from the saved file, say which application you used to open it.
+
 Remove private conversations, documents, credentials, and server details before sharing screenshots or logs.
 
 See [getting help](@/docs/getting-started.md#need-help) and [logs and privacy](@/docs/privacy.md#logs-and-diagnostics) for more details.

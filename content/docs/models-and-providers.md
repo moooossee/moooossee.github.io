@@ -41,6 +41,8 @@ Open a model family to compare its **Versions**. **Technical Details** shows est
 
 These estimates help you plan; they do not guarantee that a model will fit or predict how fast it will answer. Longer conversations, images, graphics memory and other running apps affect what you need. Model language quality varies too. Choose **Reset Filters** to clear the search and return to the default choices.
 
+You can also search for a model directly in the chat's model picker and the **Preferred Model** list in Chat Settings. Type part of its name to narrow the list on the selected connection.
+
 ## Download a model
 
 Select an Ollama connection, open **Models** with **Ctrl+M**, and choose **Add Model…**. The **Model Name or Link** field accepts:
@@ -80,7 +82,7 @@ For Hugging Face errors, check the repository, variant and Ollama compatibility.
 
 ## Update or repair managed Ollama
 
-Moose 0.8.0 includes release details for Ollama 0.40.6. You can check for newer stable Ollama releases without waiting for a new Moose version:
+Moose 0.8.5 includes release details for Ollama 0.40.6. You can check for newer stable Ollama releases without waiting for a new Moose version:
 
 1. Open **Preferences → Ollama & Diagnostics → Manage Ollama**.
 2. Compare **Installed Version** and **Available Version**, then choose **Check for Updates** to refresh the available release from GitHub.
@@ -169,6 +171,8 @@ When editing a custom connection, changing the server, API format or authenticat
 ## Chat settings and profiles
 
 Open **Chat Settings** to choose a profile, preferred model, temperature and how much recent conversation to include. You can also open **Tools**, edit the **System Prompt**, or adjust **Ollama Options**. Choose **Save Changes** to apply your edits.
+
+To create a document, use **Create Document** beside the message box with your selected chat model. Choose a file format and describe what you need, or turn a completed answer into a file from its document button. See [Files and documents](@/docs/files-and-documents.md#create-a-document).
 
 The menu includes **Save as Profile…**, **Delete Profile…** and **Reset to Defaults**. Profiles reuse a temperature and system prompt as a starting point; they do not automatically turn on tools or grant sharing permissions. Built-in profiles and reusable custom profiles stay on your device.
 

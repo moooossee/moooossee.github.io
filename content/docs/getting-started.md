@@ -1,6 +1,6 @@
 +++
 title = "Getting started"
-description = "Install Moose, find your first model, try Web and Calculator, and pick up a conversation where you left off."
+description = "Install Moose, find your first model, create a document, try Web and Calculator, and pick up where you left off."
 weight = 1
 +++
 ## Install from Flathub
@@ -72,9 +72,23 @@ Use the attachment button, drop a file into the chat, or paste a screenshot. You
 
 Images need a model with vision support. PDFs need selectable text; scanned pages are not read automatically. See [Files and documents](@/docs/files-and-documents.md) for details.
 
+Attachments appear in compact previews above the message box. Open a sent image to fit it to the window or see it at its original size. If a message has several images, use the buttons or arrow keys to browse them.
+
+## Create your first document
+
+With a provider and model selected, choose **Create Document** beside the message box. Pick a **Document Name** and **File Format**, then describe what you need. The **Report**, **Letter**, **Budget** and **Slides** examples can help you get started. Choose **Create** to send the request.
+
+You can also turn a completed answer into a file: choose its **Create Document from Response** button, pick a name and format, then choose **Create**.
+
+Moose supports PDF, Word, Excel, PowerPoint, OpenDocument and text and data formats. When the file is ready, use **Preview**, **Open** or **Save As…** on its card. The preview shows the contents; open the file in another application to see its final layout.
+
+Your created documents stay with the answer and appear in **Files → Generated**. Search by name, contents or chat title, and choose **Open Chat** to return to the answer they came from. See [Files and documents](@/docs/files-and-documents.md#create-a-document) for all formats and actions.
+
 ## Pick up where you left off
 
 Chats and drafts save on your computer. You can return to a conversation, edit a message, retry an answer, or export a chat.
+
+The chat model picker and **Chat Settings → Preferred Model** both support search by part of a model's name.
 
 If an answer reaches its length limit, Moose keeps the text and marks it as incomplete. Choose **Continue** to ask the model to pick up where it stopped. To extend another finished answer, open its message options and choose **Continue Response**.
 
@@ -85,6 +99,8 @@ Reasoning is off by default when the model supports turning it off. Moose rememb
 Use the copy button above a table to copy it as Markdown. When selecting a long passage, drag toward the top or bottom edge of the chat to scroll and keep selecting.
 
 If saving a completed response fails, Moose keeps it visible in the current chat so you can still read and copy it.
+
+To keep a copy of a conversation, choose **Export** from its menu. JSON includes copies of attachments and created documents; Markdown and plain text list their names. All formats keep source excerpts, tool results and web sources. See [conversation exports](@/docs/files-and-documents.md#export-a-conversation).
 
 ## Update Moose
 
@@ -105,6 +121,8 @@ An interrupted engine download can resume when you retry. You can cancel before 
 If a model download needs a newer engine, choose **Update Ollama and Retry** in the error dialog. For an external Ollama server, update Ollama on that server instead. See [Models and providers](@/docs/models-and-providers.md#update-or-repair-managed-ollama) for more details.
 
 ## Need help?
+
+If **Create Document** is unavailable, select a provider and finish or stop the active response. If a document is incomplete, use **Continue** or retry the answer. For a spreadsheet, ask for a table with column headings; for JSON, ask the model to correct any invalid content. Moose shows file creation errors with the response.
 
 If Web or Calculator is unavailable, check that the selected Ollama or Ollama Cloud model supports tools. Local Only also blocks Web. If DuckDuckGo temporarily limits searches, try again later or choose another search service in **Preferences → Web**.
 

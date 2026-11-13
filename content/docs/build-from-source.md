@@ -5,14 +5,14 @@ weight = 6
 +++
 ## Get the source
 
-To build the 0.8.0 release:
+To build the 0.8.5 release:
 
 ```sh
-git clone --branch v0.8.0 https://github.com/moooossee/moose.git
+git clone --branch v0.8.5 https://github.com/moooossee/moose.git
 cd moose
 ```
 
-Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the release's [Cargo.toml](https://github.com/moooossee/moose/blob/v0.8.0/Cargo.toml) and [Flatpak manifest](https://github.com/moooossee/moose/blob/v0.8.0/io.github.moooossee.Moose.yml) for its dependencies. For development work, clone the default branch instead or follow [Contributing](@/docs/contributing.md).
+Moose is written in Rust and uses GTK 4 and libadwaita for its interface. See the release's [Cargo.toml](https://github.com/moooossee/moose/blob/v0.8.5/Cargo.toml) and [Flatpak manifest](https://github.com/moooossee/moose/blob/v0.8.5/io.github.moooossee.Moose.yml) for its dependencies. For development work, clone the default branch instead or follow [Contributing](@/docs/contributing.md).
 
 ## Flatpak build
 
@@ -25,7 +25,7 @@ flatpak run io.github.moooossee.Moose
 
 The Flatpak build provides the desktop dependencies used by the app. Once Moose is running, use its setup screen to install managed Ollama or connect an existing provider. Engine updates and repairs are available from **Preferences → Ollama & Diagnostics → Manage Ollama**; building Moose does not install an engine for you.
 
-The 0.8.0 release includes the dependencies used by Web and Calculator. Keep `Cargo.lock` and `cargo-sources.json` together from the same release so the Flatpak can build without downloading extra packages during compilation.
+Keep `Cargo.lock` and `cargo-sources.json` together from the same release so the Flatpak can build without downloading extra packages during compilation.
 
 ## Native build
 

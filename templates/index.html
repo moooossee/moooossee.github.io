@@ -7,7 +7,7 @@
       <img src="{{ get_url(path='images/moose.svg') }}" width="64" height="64" alt="">
       <div><h1 id="project-title">Moose</h1><p>Chat with local and cloud AI on Linux.</p></div>
     </div>
-    <p>Ask questions, work on your writing and talk through code in a native Linux app. Run models on your computer with Ollama, connect your own server, or choose an online service such as OpenRouter. Bring your files into the conversation, look things up with a compatible model, and keep your chats and drafts on your device.</p>
+    <p>Ask questions, work on your writing and talk through code in a native Linux app. Run models on your computer with Ollama, connect your own server, or choose an online service such as OpenRouter. Bring your files into the conversation, look things up with a compatible model, or turn an answer into a document. Your chats, drafts and created files stay saved on your device.</p>
     <p class="project-links"><a href="{{ config.extra.flathub }}">Download from Flathub</a><span aria-hidden="true"> / </span><a href="{{ config.extra.repository }}">Source code</a><span aria-hidden="true"> / </span><a href="{{ latest_release.permalink }}">v{{ config.extra.version }} release notes</a></p>
   </section>
   <section class="install-block" id="install" aria-labelledby="install-title">
@@ -36,6 +36,8 @@
       <section id="features" aria-labelledby="features-title">
         <h2 id="features-title">Features</h2>
         <ul class="feature-list">
+          <li>Create documents, spreadsheets and presentations from a request or an answer you already have.</li>
+          <li>Find your uploads and generated documents together in Files, with previews, search and links back to their chats.</li>
           <li>Find models for everyday questions, coding, pictures or documents, with filters for download size and features.</li>
           <li>Download Ollama and compatible Hugging Face GGUF models by name, link or Ollama command.</li>
           <li>Install, update and repair Moose-managed Ollama while keeping your models and chats.</li>
@@ -43,15 +45,22 @@
           <li>Attach images, PDFs, text files and code, or search your local document library with source excerpts.</li>
           <li>Read formatted code, math and model reasoning as answers arrive, and copy tables as Markdown.</li>
           <li>Edit messages, try another answer or continue an incomplete response while keeping previous versions.</li>
-          <li>Save drafts automatically and export chats with their tool results and web sources.</li>
-          <li>Review downloads, retry failures and copy logs or error details when you need help.</li>
+          <li>Save drafts automatically and export chats with their sources, tool results and copies of created files in JSON.</li>
         </ul>
         <p>Images require a model with vision support. PDFs need selectable text. See <a href="{{ get_url(path='@/docs/files-and-documents.md') }}">Files and documents</a>.</p>
+      </section>
+      <section aria-labelledby="create-document-title">
+        <h2 id="create-document-title">Turn a conversation into a document</h2>
+        <p>Put together a report, a budget or slides for a class. Choose Create Document beside the message box, pick a name and format, and describe what you need. You can also turn a finished answer into a file from its document button.</p>
+        <p>Choose from 13 formats, including PDF, Word, Excel, PowerPoint, OpenDocument, Markdown and CSV. Finished documents stay with the answer, ready to preview, open in another application or save to your computer.</p>
+        <p>They also appear in Files. Use the Generated filter to find them, search by name, contents or chat title, and choose Open Chat to return to the answer they came from. JSON chat exports include copies of the files; Markdown and plain text exports list their names.</p>
+        <p><a href="{{ get_url(path='@/docs/files-and-documents.md#create-a-document') }}">Create your first document</a><span aria-hidden="true"> / </span><a href="{{ get_url(path='@/docs/files-and-documents.md#export-a-conversation') }}">Export a conversation</a></p>
       </section>
       <section aria-labelledby="find-model-title">
         <h2 id="find-model-title">Find a model for what you want to do</h2>
         <p>Open Models and choose Everyday, Coding, Images or Documents. Narrow the list by download size, image input, tool support or multiple languages, and compare versions before choosing one.</p>
         <p>Model details show estimated memory and storage needs. When Moose manages Ollama, suggestions also consider the memory available on your computer. These are estimates to help you choose; longer chats and images can need more memory. Choose Use beside an installed model to start a chat with it.</p>
+        <p>You can also search by part of a model's name in the chat's model picker or the Preferred Model list in Chat Settings.</p>
         <p><a href="{{ get_url(path='@/docs/models-and-providers.md#find-a-model') }}">Explore models and filters</a></p>
       </section>
       <section aria-labelledby="tools-title">

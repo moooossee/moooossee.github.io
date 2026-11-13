@@ -5,7 +5,7 @@ weight = 4
 +++
 ## Local storage
 
-Moose stores your conversations, drafts, document library, tool activity and retrieved web sources on your device. Keys for cloud providers and Brave Search use your desktop's secure key storage.
+Moose stores your conversations, drafts, document library, created documents, tool activity and retrieved web sources on your device. Keys for cloud providers and Brave Search use your desktop's secure key storage.
 
 Storage location and inference destination are different things: a locally saved conversation can still send approved context to a remote provider when you choose that connection.
 
@@ -34,6 +34,14 @@ Remembered permissions apply to the selected provider and server. Custom connect
 File sharing needs its own permission. Allowing messages does not automatically approve files.
 
 When approved, relevant file content can be sent with the conversation context. The remote provider's data policy applies to the content you share.
+
+## Created documents and exports
+
+When you ask for a new document, the selected chat model writes its content. With a cloud provider or remote Ollama server, your instructions and approved conversation context go to that provider. Message and file sharing permissions still apply. Moose creates the finished file on your device. Turning an existing answer into a file does not make another model request.
+
+Created documents are saved with the response that produced them and appear in Files. Deleting that conversation also removes its stored documents. Use **Save As…** to keep a separate copy in a location you choose.
+
+JSON conversation exports include copies of attachments and created documents. Markdown and plain text exports list their names. All formats also include document source excerpts, tool results and web sources. Review the contents before sharing an export, including any files inside a JSON export.
 
 ## Web permissions
 

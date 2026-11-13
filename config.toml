@@ -1,6 +1,6 @@
 base_url = "https://moooossee.github.io"
 title = "Moose"
-description = "Chat with local or cloud AI on Linux. Search the web, check calculations, find models and work with your files in Moose."
+description = "Chat with local or cloud AI on Linux. Create documents, search the web, check calculations and keep your files and conversations together in Moose."
 default_language = "en"
 compile_sass = false
 minify_html = true
@@ -19,8 +19,8 @@ style = "inline"
 add_color_scheme = false
 
 [extra]
-version = "0.8.0"
-release_notes = "changelog/0-8-0.md"
+version = "0.8.5"
+release_notes = "changelog/0-8-5.md"
 providers = ["Ollama Cloud", "OpenRouter", "Groq", "OpenAI", "Anthropic Claude", "Google Gemini", "Mistral AI", "DeepSeek", "NVIDIA NIM", "Cloudflare Workers AI"]
 repository = "https://github.com/moooossee/moose"
 flathub = "https://flathub.org/apps/io.github.moooossee.Moose"

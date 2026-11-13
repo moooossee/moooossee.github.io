@@ -1,6 +1,6 @@
 +++
 title = "Keyboard shortcuts"
-description = "Move around Moose, send messages and turn tools on or off from the keyboard."
+description = "Move around Moose, send messages, browse image previews and turn tools on or off from the keyboard."
 weight = 5
 +++
 ## Default shortcuts
@@ -33,6 +33,10 @@ Press **Enter** to send and **Shift+Enter** for a new line. Type `/` at the star
 You can use a command on its own or put it before your question, such as `/calculator What is 18% of 2450?`. Commands change the tool settings for the conversation; enabling a tool lets the model decide when to use it.
 
 Tools require a compatible Ollama or Ollama Cloud model. Web asks for separate permission and is blocked by Local Only. You can also use **Chat Settings → Tools** or the active tool buttons above the message box. See [Web and Calculator](@/docs/models-and-providers.md#web-and-calculator).
+
+## Browse image previews
+
+When a message contains several images, open one and use **Left** or **Right** to move to the previous or next image. The preview also has navigation buttons, **Fit Image to Window** and **100%** controls. See [image previews](@/docs/files-and-documents.md#images).
 
 ## Customize shortcuts
 
