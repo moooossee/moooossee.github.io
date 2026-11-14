@@ -1,8 +1,27 @@
 +++
 title = "Contributing"
-description = "Bug reports, code, documentation, and design feedback are welcome."
+description = "Translations, bug reports, code, documentation, and design feedback are welcome."
 weight = 7
 +++
+## Help translate
+
+Help more people use Moose in their own language. You can translate the app from your browser on [Weblate](https://hosted.weblate.org/projects/moose/moose/).
+
+1. Sign in to Weblate and choose your language. If it is missing, select **Start new translation** to add it.
+2. Select **Translate**, enter your translation, and save it. You can also help review existing translations.
+
+Use clear, natural wording and the terminology used by GNOME applications in your language. Keep Moose and other product names unchanged, and preserve placeholders such as `{name}` and `{count}`, formatting markup, and URLs. If a string is unclear, leave a comment on Weblate.
+
+A few strings are a good place to start. We add people who help translate or review Moose to the credits below and to the [project README](https://github.com/moooossee/moose#translation-credits). Leave a comment on Weblate if you would like us to use a particular name or profile.
+
+Translations reach users in a future app release.
+
+### Translation credits
+
+| Contributor | Language |
+| --- | --- |
+| [Moose](https://github.com/moooossee) | English (original text) |
+
 ## Report a problem
 
 Search the [existing issues](https://github.com/moooossee/moose/issues) before opening a new one. Include:
