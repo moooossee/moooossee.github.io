@@ -7,8 +7,10 @@ weight = 7
 
 Help more people use Moose in their own language. You can translate the app from your browser on [Weblate](https://hosted.weblate.org/projects/moose/moose/).
 
-1. Sign in to Weblate and choose your language. If it is missing, select **Start new translation** to add it.
+1. Sign in to Weblate and choose one of the available languages.
 2. Select **Translate**, enter your translation, and save it. You can also help review existing translations.
+
+If your language is not available, [request it in an issue](https://github.com/moooossee/moose/issues/new?template=language-request.yml). A maintainer will review the request before adding the language to Weblate. Let us know if you would like to help translate or review it.
 
 Use clear, natural wording and the terminology used by GNOME applications in your language. Keep Moose and other product names unchanged, and preserve placeholders such as `{name}` and `{count}`, formatting markup, and URLs. If a string is unclear, leave a comment on Weblate.
 
