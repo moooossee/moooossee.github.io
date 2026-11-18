@@ -21,7 +21,8 @@
   <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)" data-scheme="light">
   <meta name="theme-color" content="#222226" media="(prefers-color-scheme: dark)" data-scheme="dark">
   <link rel="canonical" href="{{ canonical }}">
-  <link rel="icon" type="image/svg+xml" href="{{ get_url(path='images/moose.svg') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='images/favicon.png') }}">
+  <link rel="preload" href="{{ get_url(path='fonts/adwaita-sans.woff2') }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}">
   <script src="{{ get_url(path='js/theme.js', cachebust=true) }}"></script>
   <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
@@ -30,7 +31,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="app-sidebar" id="app-sidebar" aria-label="Moose navigation">
-    <div class="sidebar-header"><a class="wordmark" href="{{ get_url(path='/') }}"><img src="{{ get_url(path='images/moose.svg') }}" width="32" height="32" alt=""><span>Moose</span></a><button class="icon-button sidebar-close" type="button" aria-label="Hide navigation" title="Hide Navigation" hidden>{{ <icon name="go-previous-symbolic" /> }}</button></div>
+    <div class="sidebar-header"><a class="wordmark" href="{{ get_url(path='/') }}"><img src="{{ get_url(path='images/moose-32.webp') }}" srcset="{{ get_url(path='images/moose-32.webp') }} 32w, {{ get_url(path='images/moose-64.webp') }} 64w, {{ get_url(path='images/moose-128.webp') }} 128w, {{ get_url(path='images/moose-256.webp') }} 256w" sizes="32px" width="32" height="32" alt=""><span>Moose</span></a><button class="icon-button sidebar-close" type="button" aria-label="Hide navigation" title="Hide Navigation" hidden>{{ <icon name="go-previous-symbolic" /> }}</button></div>
     <div class="sidebar-content">
       <nav class="site-nav" aria-label="Main navigation">
         <a href="{{ get_url(path='/') }}"{% if current_path is defined and current_path == '/' %} aria-current="page"{% endif %}>{{ <icon name="go-home-symbolic" /> }}<span>Overview</span></a>

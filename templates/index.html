@@ -3,18 +3,18 @@
 {% set latest_release = get_page(path=config.extra.release_notes) %}
 <div class="container project-page">
   <section class="app-overview" aria-labelledby="project-title">
-    <img class="app-icon" src="{{ get_url(path='images/moose.svg') }}" width="96" height="96" alt="">
+    <img class="app-icon" src="{{ get_url(path='images/moose-64.webp') }}" srcset="{{ get_url(path='images/moose-32.webp') }} 32w, {{ get_url(path='images/moose-64.webp') }} 64w, {{ get_url(path='images/moose-128.webp') }} 128w, {{ get_url(path='images/moose-256.webp') }} 256w" sizes="64px" width="64" height="64" alt="">
     <div class="app-identity"><h1 id="project-title">Moose</h1><p>Chat with local and cloud AI</p><a class="app-version" href="{{ latest_release.permalink }}">Version {{ config.extra.version }}</a></div>
     <div class="app-install"><a class="button button-primary" href="{{ config.extra.flathub }}" aria-label="Install Moose from Flathub">Install</a><span>From Flathub</span></div>
   </section>
 
   <figure class="screenshot-viewer" aria-label="Moose screenshots">
     <div class="preview-tabs" role="group" aria-label="App screenshots" hidden>
-      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/chat.png') }}" data-alt="Moose with saved conversations and a formatted model response." data-caption="Chat with a local model." data-label="Chat" aria-label="Show Chat screenshot" aria-pressed="true">{{ <icon name="chat-message-new-symbolic" /> }}Chat</button>
-      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/files.png') }}" data-alt="Moose Files with attachments and generated documents." data-caption="Browse attachments and generated documents." data-label="Files" aria-label="Show Files screenshot" aria-pressed="false">{{ <icon name="folder-symbolic" /> }}Files</button>
-      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/privacy.png') }}" data-alt="Moose privacy settings with Local Only mode and sharing permissions." data-caption="Choose what to share with online services." data-label="Privacy" aria-label="Show Privacy screenshot" aria-pressed="false">{{ <icon name="security-high-symbolic" /> }}Privacy</button>
+      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/chat.webp') }}" data-full-image="{{ get_url(path='images/chat.png') }}" data-alt="Moose with saved conversations and a formatted model response." data-caption="Chat with a local model." data-label="Chat" aria-label="Show Chat screenshot" aria-pressed="true">{{ <icon name="chat-message-new-symbolic" /> }}Chat</button>
+      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/files.webp') }}" data-full-image="{{ get_url(path='images/files.png') }}" data-alt="Moose Files with attachments and generated documents." data-caption="Browse attachments and generated documents." data-label="Files" aria-label="Show Files screenshot" aria-pressed="false">{{ <icon name="folder-symbolic" /> }}Files</button>
+      <button type="button" class="preview-tab" data-image="{{ get_url(path='images/privacy.webp') }}" data-full-image="{{ get_url(path='images/privacy.png') }}" data-alt="Moose privacy settings with Local Only mode and sharing permissions." data-caption="Choose what to share with online services." data-label="Privacy" aria-label="Show Privacy screenshot" aria-pressed="false">{{ <icon name="security-high-symbolic" /> }}Privacy</button>
     </div>
-    <a href="{{ get_url(path='images/chat.png') }}" class="screenshot-link" aria-label="Open full-size Chat screenshot"><img id="app-screenshot" src="{{ get_url(path='images/chat.png') }}" width="1650" height="982" fetchpriority="high" alt="Moose with saved conversations and a formatted model response."></a>
+    <a href="{{ get_url(path='images/chat.png') }}" class="screenshot-link" aria-label="Open full-size Chat screenshot"><img id="app-screenshot" src="{{ get_url(path='images/chat.webp') }}" width="1650" height="982" fetchpriority="high" decoding="async" alt="Moose with saved conversations and a formatted model response."></a>
     <figcaption id="preview-caption" aria-live="polite">Chat with a local model.</figcaption>
   </figure>
 

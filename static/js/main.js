@@ -160,17 +160,71 @@
   const screenshotLink = document.querySelector('.screenshot-link');
   const caption = document.getElementById('preview-caption');
   const screenshotTabs = [...document.querySelectorAll('.preview-tab')];
-  const selectScreenshot = tab => {
-    if (!screenshot || !screenshotLink || !caption) return;
-    screenshot.src = tab.dataset.image;
-    screenshot.alt = tab.dataset.alt;
-    screenshotLink.href = tab.dataset.image;
-    screenshotLink.setAttribute('aria-label', `Open full-size ${tab.dataset.label} screenshot`);
-    caption.textContent = tab.dataset.caption;
-    screenshotTabs.forEach(item => item.setAttribute('aria-pressed', String(item === tab)));
+  const screenshotViewer = document.querySelector('.screenshot-viewer');
+  const screenshotCache = new Map();
+  let screenshotRequest = 0;
+  const prepareScreenshot = (tab, priority = 'low') => {
+    const source = tab.dataset.image;
+    const cached = screenshotCache.get(source);
+    if (cached) {
+      if (priority === 'high') cached.image.fetchPriority = 'high';
+      return cached.ready;
+    }
+    if (screenshot?.src === source && screenshot.complete && screenshot.naturalWidth) return Promise.resolve(screenshot);
+    const image = new Image();
+    image.decoding = 'async';
+    image.fetchPriority = priority;
+    image.src = source;
+    const ready = image.decode().then(() => image).catch(error => {
+      screenshotCache.delete(source);
+      throw error;
+    });
+    screenshotCache.set(source, { image, ready });
+    return ready;
   };
-  if (screenshot) document.querySelector('.preview-tabs')?.removeAttribute('hidden');
+  const selectScreenshot = async tab => {
+    if (!screenshot || !screenshotLink || !caption) return;
+    const request = ++screenshotRequest;
+    if (tab.getAttribute('aria-pressed') === 'true' && screenshot.complete && screenshot.naturalWidth) {
+      screenshotViewer?.removeAttribute('aria-busy');
+      return;
+    }
+    screenshotViewer?.setAttribute('aria-busy', 'true');
+    try {
+      const image = await prepareScreenshot(tab, 'high');
+      if (request !== screenshotRequest) return;
+      screenshot.src = image.src;
+      screenshot.alt = tab.dataset.alt;
+      screenshotLink.href = tab.dataset.fullImage ?? tab.dataset.image;
+      screenshotLink.setAttribute('aria-label', `Open full-size ${tab.dataset.label} screenshot`);
+      caption.textContent = tab.dataset.caption;
+      screenshotTabs.forEach(item => item.setAttribute('aria-pressed', String(item === tab)));
+    } catch {
+      if (request === screenshotRequest) notify('The screenshot could not be loaded. Try again.');
+    } finally {
+      if (request === screenshotRequest) screenshotViewer?.removeAttribute('aria-busy');
+    }
+  };
+  if (screenshot) {
+    document.querySelector('.preview-tabs')?.removeAttribute('hidden');
+    const preloadScreenshots = () => {
+      const connection = navigator.connection;
+      if (connection?.saveData || ['slow-2g', '2g'].includes(connection?.effectiveType)) return;
+      const preload = async () => {
+        for (const tab of screenshotTabs) {
+          try { await prepareScreenshot(tab); } catch {}
+        }
+      };
+      if ('requestIdleCallback' in window) window.requestIdleCallback(preload, { timeout: 2000 });
+      else setTimeout(preload, 500);
+    };
+    if (document.readyState === 'complete') preloadScreenshots();
+    else window.addEventListener('load', preloadScreenshots, { once: true });
+  }
   screenshotTabs.forEach((tab, index) => {
+    const prepare = () => { prepareScreenshot(tab, 'high').catch(() => {}); };
+    tab.addEventListener('pointerenter', prepare, { once: true });
+    tab.addEventListener('focus', prepare, { once: true });
     tab.addEventListener('click', () => selectScreenshot(tab));
     tab.addEventListener('keydown', event => {
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Adwaita Sans';
-  src: url('../fonts/adwaita-sans.ttf') format('truetype');
+  src: url('../fonts/adwaita-sans.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Adwaita Mono';
-  src: local('Adwaita Mono'), url('../fonts/adwaita-mono-regular.ttf') format('truetype');
+  src: local('Adwaita Mono'), url('../fonts/adwaita-mono-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Adwaita Mono';
-  src: local('Adwaita Mono Bold'), url('../fonts/adwaita-mono-bold.ttf') format('truetype');
+  src: local('Adwaita Mono Bold'), url('../fonts/adwaita-mono-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
