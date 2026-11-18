@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container docs-layout">
-  <aside class="docs-sidebar"><p class="eyebrow">~/ DOCUMENTATION</p><nav aria-label="Documentation">{% set docs = get_section(path="docs/_index.md") %}{% for doc in docs.pages %}<a href="{{ doc.permalink }}"{% if page is defined and page.permalink == doc.permalink %} aria-current="page"{% endif %}><span>{{ loop.index | int }}.</span>{{ doc.title }}</a>{% endfor %}<a href="{{ get_url(path='@/docs/contributing.md') }}#help-translate"><span aria-hidden="true">+</span>Help translate</a></nav><a class="sidebar-source" href="{{ config.extra.repository }}">{{ <icon name="github" size={16} /> }}Project on GitHub</a></aside>
+{% set docs = get_section(path="docs/_index.md") %}
+<div class="container docs-layout{% if page is defined and page.toc %} has-toc{% endif %}">
   <article class="docs-article">
-    {% if page is defined %}<p class="eyebrow">MOOSE / DOCUMENTATION</p><h1>{{ page.title }}</h1><p class="article-description">{{ page.description }}</p><div class="prose">{{ page.content | safe }}</div><nav class="doc-pagination" aria-label="Documentation pages">{% if page.lower %}<a href="{{ page.lower.permalink }}"><small>Previous guide</small>{{ page.lower.title }}</a>{% endif %}{% if page.higher %}<a href="{{ page.higher.permalink }}"><small>Next guide</small>{{ page.higher.title }}</a>{% endif %}</nav>
-    {% else %}<p class="eyebrow">MOOSE / DOCUMENTATION</p><h1>{{ section.title }}</h1><p class="article-description">{{ section.description }}</p><div class="prose">{{ section.content | safe }}</div><div class="doc-index">{% for doc in docs.pages %}<a href="{{ doc.permalink }}"><span class="accent">0{{ loop.index }}</span><div><h2>{{ doc.title }}</h2><p>{{ doc.description }}</p></div></a>{% endfor %}</div>{% endif %}
+    {% if page is defined %}
+    <header class="page-heading"><h1>{{ page.title }}</h1><p>{{ page.description }}</p></header>
+    <div class="prose">{{ page.content | safe }}</div>
+    <nav class="doc-pagination" aria-label="Documentation pages">
+      {% if page.lower %}<a href="{{ page.lower.permalink }}">{{ <icon name="go-previous-symbolic" /> }}<span><small>Previous</small>{{ page.lower.title }}</span></a>{% endif %}
+      {% if page.higher %}<a href="{{ page.higher.permalink }}"><span><small>Next</small>{{ page.higher.title }}</span>{{ <icon name="go-next-symbolic" /> }}</a>{% endif %}
+    </nav>
+    {% else %}
+    <header class="page-heading"><h1>{{ section.title }}</h1><p>{{ section.description }}</p></header>
+    <div class="doc-index">
+      {% for doc in docs.pages %}<a href="{{ doc.permalink }}">{{ <guide_icon slug={doc.slug} /> }}<span class="row-label"><strong>{{ doc.title }}</strong><span>{{ doc.description }}</span></span>{{ <icon name="go-next-symbolic" /> }}</a>{% endfor %}
+    </div>
+    <div class="prose docs-introduction">{{ section.content | safe }}</div>
+    {% endif %}
   </article>
-  {% if page is defined and page.toc %}<aside class="docs-toc"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="On this page">{% for item in page.toc %}<a href="{{ item.permalink }}">{{ item.title }}</a>{% endfor %}</nav></aside>{% endif %}
+  {% if page is defined and page.toc %}<aside class="docs-toc"><p class="sidebar-heading">On This Page</p><nav aria-label="On this page">{% for item in page.toc %}<a href="{{ item.permalink }}">{{ item.title }}</a>{% endfor %}</nav></aside>{% endif %}
 </div>
 {% endblock content %}
